@@ -36,4 +36,11 @@ static void InitDatabase(WebApplication app)
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.EnsureDeleted();
     db.Database.EnsureCreated();
+
+    var p1 = db.Products.FirstOrDefault();
+    if (p1 is not null)
+    {
+        p1.Stock = 3;
+        db.SaveChanges();
+    }
 }
