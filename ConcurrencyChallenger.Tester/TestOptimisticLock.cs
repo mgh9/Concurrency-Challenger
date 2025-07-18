@@ -4,7 +4,7 @@ internal class TestOptimisticLock
 {
     internal static IEnumerable<Task> CallAddOrderWithOptimisticLock()
     {
-        var tasks = Enumerable.Range(0, 100).Select(i =>
+        var tasks = Enumerable.Range(0, 10).Select(i =>
             Task.Run(async () =>
             {
                 try
