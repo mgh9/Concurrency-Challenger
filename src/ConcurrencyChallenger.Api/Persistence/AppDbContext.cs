@@ -11,6 +11,10 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<Product>()
+              .Property(p => p.RowVersion)
+              .IsRowVersion();
+
         modelBuilder.Entity<Product>().HasData(
         new Product { Id = 1, Name = "Laptop", Stock = 3 },
         new Product { Id = 2, Name = "Keyboard", Stock = 10 },

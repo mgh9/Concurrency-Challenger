@@ -9,4 +9,7 @@ public class Product
     public string Name { get; set; } = default!;
 
     public int Stock { get; set; }
+
+    [Timestamp] // Enables optimistic concurrency
+    public byte[] RowVersion { get; set; } = default!;
 }
